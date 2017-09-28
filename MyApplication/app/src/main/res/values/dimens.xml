@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="icon_margin_map_4dp">4dp</dimen>
+    <dimen name="icon_margin_map_10dp">10dp</dimen>
+    <dimen name="map_searchview_margin_top">10dp</dimen>
+    <dimen name="map_searchview_margin_bottom">10dp</dimen>
+    <dimen name="map_searchview_margin_left">-20dp</dimen>
+</resources>

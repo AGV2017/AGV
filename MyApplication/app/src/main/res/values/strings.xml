@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="google_maps_key">AIzaSyAwmJqaQKa746Lg-sLzOQqwglfcYqko-VA</string>
+    <string name="list_restaurant_tabspec_1">Nhậu</string>
+    <string name="list_restaurant_tabspec_2">Cà phê</string>
+    <string name="list_restaurant_tabspec_3">Ăn vặt</string>
+    <string name="list_restaurant_tabspec_4">Món nướng</string>
+    <string name="list_restaurant_tabspec_5">Sinh tố</string>
+    <string name="map_searchview_hint">Tìm địa điểm, dịch vụ</string>
+    <string name="map_type_search_positon">Địa điểm</string>
+    <string name="map_search_radius">50m</string>
+    <string name="map_find_button">Tìm</string>
+    <string name="map_scan_button">Scan</string>
+    <string name="map_friends_button">Bạn</string>
+    <string name="map_more_button">...</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
