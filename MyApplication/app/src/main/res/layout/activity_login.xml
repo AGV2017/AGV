@@ -1,7 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    android:paddingLeft="50dp"
+    android:paddingRight="50dp"
     android:orientation="vertical">
 
-</LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true">
+
+
+        <TextView
+            android:id="@+id/tvTypeUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/login_margin_top_bottom_long"
+            android:textSize="@dimen/login_text_size"
+            android:text="@string/login_username_or_mobile_phone" />
+
+        <EditText
+            android:id="@+id/etUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvTypeUserName"
+            android:layout_marginTop="@dimen/login_margin_top_bottom_short"
+            android:background="@drawable/custom_background_button_2_gradius"
+            android:padding="@dimen/login_input_text_padding"
+            android:ems="10"
+            android:inputType="textPersonName"
+
+            />
+
+        <TextView
+            android:id="@+id/tvTypePassWord"
+            android:textSize="@dimen/login_text_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etUserName"
+
+            android:layout_marginTop="@dimen/login_margin_top_bottom_long"
+            android:text="@string/all_password" />
+
+        <EditText
+            android:id="@+id/etPassWork"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvTypePassWord"
+            android:layout_marginTop="@dimen/login_margin_top_bottom_short"
+            android:background="@drawable/custom_background_button_2_gradius"
+            android:ems="10"
+            android:padding="@dimen/login_input_text_padding"
+            android:inputType="textPassword"
+            />
+        <TextView
+            android:id="@+id/etForgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etPassWork"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/login_margin_top_bottom_short"
+            android:textSize="@dimen/login_text_size"
+
+            android:text="@string/login_fogot_password" />
+
+        <LinearLayout
+            android:id="@+id/layout_login"
+            android:layout_below="@id/etForgotPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/login_margin_top_bottom_long"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:padding="@dimen/login_padding_button_login"
+                android:text="@string/login_button_access"
+                android:layout_marginRight="20dp"
+
+                 />
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/login_padding_button_login"
+                android:text="@string/all_register"
+                 />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvLoginWithOther"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/layout_login"
+            android:layout_marginTop="@dimen/login_margin_top_bottom__very_long"
+
+            android:textSize="@dimen/login_text_size"
+            android:text="@string/login_title_login_with_another_account" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvLoginWithOther"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/ibtnLoginWithGoogle"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:srcCompat="@mipmap/ic_google" />
+
+            <ImageButton
+                android:id="@+id/ibtnLoginWithFacebook"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+
+                app:srcCompat="@mipmap/ic_facebook" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>

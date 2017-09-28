@@ -5,6 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.ToxicBakery.viewpager.transforms.RotateUpTransformer;
@@ -26,9 +27,13 @@ public class HomeActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Hide actionbar
         getSupportActionBar().hide();
+
         setContentView(R.layout.activity_home);
+
         getFormWidgets();
+        addEvent();
     }
     /**
      * Hàm ánh xạ control
@@ -39,14 +44,15 @@ public class HomeActivity extends AppCompatActivity{
         adapterViewPager = new HomePagerAdapter(getSupportFragmentManager());
         vpPager.setAdapter(adapterViewPager);
         vpPager.setPageTransformer(true, new RotateUpTransformer());
-        vpPager.setCurrentItem(0);
+        vpPager.setCurrentItem(FIND_TAB);
 
         ibtnFind=(ImageButton)findViewById(R.id.ibtnFind);
         ibtnScan=(ImageButton)findViewById(R.id.ibtnScan);
         ibtnFriends=(ImageButton)findViewById(R.id.ibtnFriends);
         ibtnMore=(ImageButton)findViewById(R.id.ibtnMore);
         ibtnMoneyManagement=(ImageButton)findViewById(R.id.ibtnMoneyManagement);
-        addEvent();
+
+
     }
     /**
      * Add event
@@ -55,84 +61,71 @@ public class HomeActivity extends AppCompatActivity{
         ibtnFind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                vpPager.setCurrentItem(0);
+                vpPager.setCurrentItem(FIND_TAB);
 
                 enableAllButton();
-                ibtnFind.setImageResource(R.mipmap.ic_find_choose);
-                ibtnFind.setEnabled(false);
+                updateImageButtonOnTab(ibtnFind,R.mipmap.ic_find_choose);
             }
         });
         ibtnScan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                vpPager.setCurrentItem(1);
+                vpPager.setCurrentItem(SCAN_QR_CODE_TAB);
 
                 enableAllButton();
-                ibtnScan.setImageResource(R.mipmap.ic_qrcode_choose);
-                ibtnScan.setEnabled(false);
+                updateImageButtonOnTab(ibtnScan,R.mipmap.ic_qrcode_choose);
             }
         });
         ibtnFriends.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                vpPager.setCurrentItem(2);
+                vpPager.setCurrentItem(FRIENDS_TAB);
 
                 enableAllButton();
-                ibtnFriends.setImageResource(R.mipmap.ic_friends_choose);
-                ibtnFriends.setEnabled(false);
+                updateImageButtonOnTab(ibtnFriends,R.mipmap.ic_friends_choose);
             }
         });
         ibtnMoneyManagement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                vpPager.setCurrentItem(3);
+                vpPager.setCurrentItem(MONEY_MANAGEMENT_TAB);
                 enableAllButton();
-                ibtnMoneyManagement.setImageResource(R.mipmap.ic_money_management_choose);
-                ibtnMoneyManagement.setEnabled(false);
+                updateImageButtonOnTab(ibtnMoneyManagement,R.mipmap.ic_money_management_choose);
             }
         });
         ibtnMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                vpPager.setCurrentItem(4);
-
+                vpPager.setCurrentItem(MORE_TAB);
                 enableAllButton();
-                ibtnMore.setImageResource(R.mipmap.ic_more_choose);
-                ibtnMore.setEnabled(false);
+                updateImageButtonOnTab(ibtnMore,R.mipmap.ic_more_choose);
             }
         });
         vpPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
             }
             @Override
             public void onPageSelected(int position) {
-                if(position== FIND_TAB){
-                    enableAllButton();
-                    ibtnFind.setImageResource(R.mipmap.ic_find_choose);
-                    ibtnFind.setEnabled(false);
-                }
-                else if(position==SCAN_QR_CODE_TAB){
-                    enableAllButton();
-                    ibtnScan.setImageResource(R.mipmap.ic_qrcode_choose);
-                    ibtnScan.setEnabled(false);
-                }
-                else if(position==FRIENDS_TAB){
-                    enableAllButton();
-                    ibtnFriends.setImageResource(R.mipmap.ic_friends_choose);
-                    ibtnFriends.setEnabled(false);
-                }
-                else if(position==MONEY_MANAGEMENT_TAB){
-                    enableAllButton();
-                    ibtnMoneyManagement.setImageResource(R.mipmap.ic_money_management_choose);
-                    ibtnMoneyManagement.setEnabled(false);
-                }
-                else if(position==MORE_TAB)
-                {
-                    enableAllButton();
-                    ibtnMore.setImageResource(R.mipmap.ic_more_choose);
-                    ibtnMore.setEnabled(false);
+                //Enable all Imagebutton and hide Imagebutton just clicked
+                enableAllButton();
+                switch (position){
+                    case FIND_TAB:
+                        updateImageButtonOnTab(ibtnFind,R.mipmap.ic_find_choose);
+                        break;
+                    case SCAN_QR_CODE_TAB:
+                        updateImageButtonOnTab(ibtnScan,R.mipmap.ic_qrcode_choose);
+                        break;
+                    case FRIENDS_TAB:
+                        updateImageButtonOnTab(ibtnFriends,R.mipmap.ic_friends_choose);
+                        break;
+                    case MONEY_MANAGEMENT_TAB:
+                        updateImageButtonOnTab(ibtnMoneyManagement,R.mipmap.ic_money_management_choose);
+                        break;
+                    case MORE_TAB:
+                        updateImageButtonOnTab(ibtnMore,R.mipmap.ic_more_choose);
+                        break;
+                    default: break;
                 }
             }
 
@@ -142,6 +135,10 @@ public class HomeActivity extends AppCompatActivity{
             }
         });
     }
+
+    /**
+     * Enable all button and set image source is ic_not_choose
+     */
     private void enableAllButton(){
         ibtnFind.setImageResource(R.mipmap.ic_find);
         ibtnScan.setImageResource(R.mipmap.ic_qrcode);
@@ -154,5 +151,12 @@ public class HomeActivity extends AppCompatActivity{
         ibtnFriends.setEnabled(true);
         ibtnMoneyManagement.setEnabled(true);
         ibtnMore.setEnabled(true);
+    }
+    /**
+     * update view when tab choose
+     */
+    private void updateImageButtonOnTab(ImageButton ibtnChoosed, int imgChoose){
+        ibtnChoosed.setEnabled(false);
+        ibtnChoosed.setImageResource(imgChoose);
     }
 }

@@ -4,8 +4,8 @@
         android:state_enabled="false">
         <shape android:shape="rectangle">
             <corners android:radius="2dp" />
-            <stroke android:width="1dp" android:color="#77888888" />
-            <solid android:color="#44FFFFFF" />
+            <stroke android:width="1dp" android:color="@color/colorWhiteApp" />
+            <solid android:color="@color/colorBlueApp" />
         </shape>
     </item>
     <item
@@ -13,17 +13,17 @@
         android:state_enabled="true">
         <shape android:shape="rectangle">
             <corners android:radius="2dp" />
-            <stroke android:width="1dp" android:color="#DD888888" />
-            <solid android:color="#dd9e9c9c" />
+            <stroke android:width="1dp" android:color="@color/colorWhiteApp" />
+            <solid android:color="@color/colorBlueApp_Press" />
         </shape>
     </item>
-    <item
 
+    <item
         android:state_enabled="true">
         <shape android:shape="rectangle">
             <corners android:radius="2dp" />
-            <stroke android:width="1dp" android:color="#DD888888" />
-            <solid android:color="#fff" />
+            <stroke android:width="1dp" android:color="@color/colorWhiteApp" />
+            <solid android:color="@color/colorBlueAppLight" />
         </shape>
     </item>
 </selector>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">KAAK</string>
     <string name="google_maps_key">AIzaSyAwmJqaQKa746Lg-sLzOQqwglfcYqko-VA</string>
     <string name="list_restaurant_tabspec_1">Nhậu</string>
     <string name="list_restaurant_tabspec_2">Cà phê</string>
@@ -7,12 +7,24 @@
     <string name="list_restaurant_tabspec_4">Món nướng</string>
     <string name="list_restaurant_tabspec_5">Sinh tố</string>
     <string name="map_searchview_hint">Tìm địa điểm, dịch vụ</string>
-    <string name="map_type_search_positon">Địa điểm</string>
+    <string name="all_positon">Địa điểm</string>
     <string name="map_search_radius">50m</string>
-    <string name="map_find_button">Tìm</string>
-    <string name="map_scan_button">Scan</string>
-    <string name="map_friends_button">Bạn</string>
+    <string name="all_find">Tìm</string>
+    <string name="all_scan">Scan</string>
+    <string name="all_friends">Bạn</string>
     <string name="map_more_button">...</string>
+
+    <!-- string for activity login-->
+    <string name="login_title">Đăng nhập hoặc số điện thoại</string>
+    <string name="login_username_or_mobile_phone">Tên đăng nhập/số điện thoại</string>
+    <string name="all_password">Mật khẩu</string>
+    <string name="login_fogot_password"><u>Quên mật khẩu?</u></string>
+    <string name="login_button_access">Đăng nhập</string>
+    <string name="login_title_login_with_another_account">Hoặc đăng nhập từ tài khoản</string>
+    <string name="all_mobile_phone">Số điện thoại</string>
+    <string name="all_facebook">Facebook</string>
+    <string name="all_google">Google</string>
+    <string name="all_register"><u>Đăng ký</u></string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

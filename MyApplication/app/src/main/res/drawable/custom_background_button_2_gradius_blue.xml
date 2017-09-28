@@ -3,7 +3,7 @@
     <item
         android:state_enabled="false">
         <shape android:shape="rectangle">
-            <corners android:radius="1.3dp" />
+            <corners android:radius="2dp" />
             <stroke android:width="1dp" android:color="@color/colorWhiteApp" />
             <solid android:color="@color/colorBlueApp" />
         </shape>
@@ -12,24 +12,16 @@
         android:state_pressed="true"
         android:state_enabled="true">
         <shape android:shape="rectangle">
-            <corners android:radius="1.3dp" />
+            <corners android:radius="2dp" />
             <stroke android:width="1dp" android:color="@color/colorWhiteApp" />
             <solid android:color="@color/colorBlueApp_Press" />
         </shape>
     </item>
-    <item
-        android:state_focused="true"
-        android:state_enabled="true">
-        <shape android:shape="rectangle">
-            <corners android:radius="1.3dp" />
-            <stroke android:width="1dp" android:color="#DD888888" />
-            <solid android:color="#A9FFFFFF" />
-        </shape>
-    </item>
+
     <item
         android:state_enabled="true">
         <shape android:shape="rectangle">
-            <corners android:radius="1.3dp" />
+            <corners android:radius="2dp" />
             <stroke android:width="1dp" android:color="@color/colorWhiteApp" />
             <solid android:color="@color/colorBlueApp" />
         </shape>

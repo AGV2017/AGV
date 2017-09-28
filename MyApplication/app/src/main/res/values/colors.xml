@@ -6,4 +6,13 @@
     <color name="colorBlueApp">#4781dc</color>
     <color name="colorBlueApp_Press">#2f538c</color>
     <color name="colorWhiteApp">#fdfdfd</color>
+
+    <color name="colorBlueAppDark">#034bbc</color>
+    <color name="colorBlueAppLight">#7391c1</color>
+    <color name="colorBlueAppDark_Press">#02327e</color>
+    <color name="colorGreenAppDark">#02b930</color>
+    <color name="colorGreenAppDark_Press">#017e20</color>
+    <color name="colorRedApp">#f73247</color>
+    <color name="colorRedApp_Press">#df2b34</color>
+
 </resources>
