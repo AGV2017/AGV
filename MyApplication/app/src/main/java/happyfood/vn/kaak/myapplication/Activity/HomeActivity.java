@@ -13,6 +13,11 @@ import com.ToxicBakery.viewpager.transforms.RotateUpTransformer;
 import happyfood.vn.kaak.myapplication.Adapter.HomePagerAdapter;
 import happyfood.vn.kaak.myapplication.R;
 
+
+/**
+ * Library
+ * compile 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
+ */
 public class HomeActivity extends AppCompatActivity{
 
     public static final int FIND_TAB=0;
