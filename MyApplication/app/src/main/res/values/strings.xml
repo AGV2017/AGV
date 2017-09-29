@@ -29,7 +29,13 @@
 
     <!--string for register-->
     <string name="register_confirm_password">Nhập lại mật khẩu</string>
-    <string name="all_cancel">Hủy</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="all_cancel">Hủy bỏ</string>
+
+
+    <!--string for dialog spent money-->
+    <string name="all_content">Nội dung</string>
+    <string name="all_money">Số tiền</string>
+    <string name="all_accept">Chấp nhận</string>
+    <string name="get_money">Thu tiền</string>
+    <string name="spent_money">Chi tiền</string>
 </resources>

@@ -103,8 +103,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
             ibtnShowList.setVisibility(View.GONE);
             addEvent();
         }
-
-
         return view;
     }
 
@@ -169,23 +167,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
         //Ẩn 2 button cài dặt và quét QRCode đi
         ibtnMenu.setVisibility(View.GONE);
         ibtnScanQR.setVisibility(View.GONE);
-
-        /*fakeDataRestaurant();
-
-        RestaurantOnMapAdapter restaurantOnMapAdapter_tab_1=new RestaurantOnMapAdapter(this,arrayRestaurant);
-        lstRestaurantOnTab1.setAdapter(restaurantOnMapAdapter_tab_1);
-
-        RestaurantOnMapAdapter restaurantOnMapAdapter_tab_2=new RestaurantOnMapAdapter(this,arrayRestaurant);
-        lstRestaurantOnTab2.setAdapter(restaurantOnMapAdapter_tab_2);
-
-        RestaurantOnMapAdapter restaurantOnMapAdapter_tab_3=new RestaurantOnMapAdapter(this,arrayRestaurant);
-        lstRestaurantOnTab3.setAdapter(restaurantOnMapAdapter_tab_3);
-
-        RestaurantOnMapAdapter restaurantOnMapAdapter_tab_4=new RestaurantOnMapAdapter(this,arrayRestaurant);
-        lstRestaurantOnTab4.setAdapter(restaurantOnMapAdapter_tab_4);
-
-        RestaurantOnMapAdapter restaurantOnMapAdapter_tab_5=new RestaurantOnMapAdapter(this,arrayRestaurant);
-        lstRestaurantOnTab5.setAdapter(restaurantOnMapAdapter_tab_5);*/
     }
 
     /**
@@ -221,7 +202,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
                     }
                 });
                 chooseRadius.show();
-
             }
         });
 
@@ -380,35 +360,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
         spec.setContent(R.id.tab5);
         spec.setIndicator(getResources().getString(R.string.list_restaurant_tabspec_5));
         mTabhost.addTab(spec);
-    }
-
-    /**
-     * Hàm tạo dữ liệu giả cho arraylist
-     */
-    private void fakeDataRestaurant(){
-        Restaurant restaurant=new Restaurant();
-        restaurant.setName("Nhà hàng siêu ngon");
-        restaurant.setAddress("289 Đinh Bộ Lĩnh, P26, quận Bình Thạnh, TP.HCM");
-        restaurant.setVote(9.5f);
-        arrayRestaurant.add(restaurant);
-
-        restaurant=new Restaurant();
-        restaurant.setName("Nhà hàng dở ẹt");
-        restaurant.setAddress("100 Đinh Bộ Lĩnh, P26, quận Bình Thạnh, TP.HCM");
-        restaurant.setVote(3.5f);
-        arrayRestaurant.add(restaurant);
-
-        restaurant=new Restaurant();
-        restaurant.setName("King BBQ");
-        restaurant.setAddress("10 Xô viết nghệ tĩnh, P26, quận Bình Thạnh, TP.HCM");
-        restaurant.setVote(7.5f);
-        arrayRestaurant.add(restaurant);
-
-        restaurant=new Restaurant();
-        restaurant.setName("Highland coffe");
-        restaurant.setAddress("123 Nguyễn Văn Cừ, P26, Quận 5, TP.HCM");
-        restaurant.setVote(8.5f);
-        arrayRestaurant.add(restaurant);
     }
 
     /**

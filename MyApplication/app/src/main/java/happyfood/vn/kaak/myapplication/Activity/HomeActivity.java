@@ -1,22 +1,33 @@
 package happyfood.vn.kaak.myapplication.Activity;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.ToxicBakery.viewpager.transforms.RotateUpTransformer;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 import happyfood.vn.kaak.myapplication.Adapter.HomePagerAdapter;
+import happyfood.vn.kaak.myapplication.Custom.CaptureActivityPortrait;
 import happyfood.vn.kaak.myapplication.R;
 
 
 /**
  * Library
  * compile 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
+ *
+ * compile 'com.journeyapps:zxing-android-embedded:3.3.0'
+ * compile 'com.journeyapps:zxing-android-legacy:2.0.1@aar'
+ * compile 'com.journeyapps:zxing-android-integration:2.0.1@aar'
+ * compile 'com.google.zxing:core:3.0.1'
+ *
+ * compile 'com.roomorama:caldroid:3.0.1'
  */
 public class HomeActivity extends AppCompatActivity{
 
@@ -25,6 +36,8 @@ public class HomeActivity extends AppCompatActivity{
     public static final int FRIENDS_TAB=2;
     public static final int MONEY_MANAGEMENT_TAB=3;
     public static final int MORE_TAB=4;
+
+    public static final int REQUEST_FOR_ADD_SPENT_MONEY=10;
     private ViewPager vpPager;
     FragmentPagerAdapter adapterViewPager;
 
@@ -163,5 +176,11 @@ public class HomeActivity extends AppCompatActivity{
     private void updateImageButtonOnTab(ImageButton ibtnChoosed, int imgChoose){
         ibtnChoosed.setEnabled(false);
         ibtnChoosed.setImageResource(imgChoose);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
     }
 }

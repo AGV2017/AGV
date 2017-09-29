@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/all_padding_long"
+    >
+
+    <TextView
+        android:id="@+id/tvContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:textSize="@dimen/login_text_size"
+        android:text="@string/all_content" />
+
+    <EditText
+        android:id="@+id/etContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/all_margin_short"
+        android:layout_below="@+id/tvContent"
+        android:ems="10"
+        android:background="@drawable/custom_background_button_2_gradius"
+        android:padding="@dimen/all_padding_long"
+        android:inputType="textPersonName"
+        />
+
+    <TextView
+        android:id="@+id/tvCost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/all_margin_long"
+        android:layout_below="@+id/etContent"
+        android:textSize="@dimen/login_text_size"
+        android:text="@string/all_money" />
+
+    <EditText
+        android:id="@+id/etCost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/all_margin_short"
+        android:padding="@dimen/all_padding_long"
+        android:layout_below="@+id/tvCost"
+        android:background="@drawable/custom_background_button_2_gradius"
+        android:ems="10"
+        android:inputType="number"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etCost"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnGetMoney"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/get_money" />
+        <Button
+            android:id="@+id/btnSpentMoney"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/spent_money" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/all_cancel" />
+    </LinearLayout>
+
+</RelativeLayout>

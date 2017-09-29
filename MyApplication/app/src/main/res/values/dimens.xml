@@ -6,17 +6,23 @@
     <dimen name="map_searchview_margin_bottom">10dp</dimen>
     <dimen name="map_searchview_margin_left">-20dp</dimen>
 
+    <dimen name="all_padding_long">10dp</dimen>
+    <dimen name="all_padding_short">5dp</dimen>
+    <dimen name="all_margin_long">10dp</dimen>
+    <dimen name="all_margin_short">5dp</dimen>
     <!-- dimens for login activity-->
     <dimen name="all_margin">10dp</dimen>
     <dimen name="login_title_size">30sp</dimen>
     <dimen name="login_text_size">16sp</dimen>
     <dimen name="login_margin_top_bottom_short">5dp</dimen>
     <dimen name="login_margin_top_bottom_long">10dp</dimen>
-    <dimen name="login_margin_top_bottom__very_long">30dp</dimen>
+    <dimen name="all_margin_top_bottom_very_long">30dp</dimen>
     <dimen name="login_padding_button_login">10dp</dimen>
     <dimen name="login_input_text_padding">5dp</dimen>
     <dimen name="login_padding_root">50dp</dimen>
     <dimen name="login_margin_between_button">20dp</dimen>
     <dimen name="login_image_show_password_height">20dp</dimen>
     <dimen name="login_image_show_password_width">45dp</dimen>
+
+
 </resources>
