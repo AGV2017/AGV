@@ -6,11 +6,9 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -27,9 +25,8 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
 
-import happyfood.vn.kaak.myapplication.Activity.HomeActivity;
 import happyfood.vn.kaak.myapplication.ActivityLikeDialog.AddSpentMoneyDialog;
-import happyfood.vn.kaak.myapplication.Adapter.ListThuChiAdapter;
+import happyfood.vn.kaak.myapplication.Adapter.DetailUseMoneyAdapter;
 import happyfood.vn.kaak.myapplication.Model.SpentMoney;
 import happyfood.vn.kaak.myapplication.R;
 
@@ -47,7 +44,7 @@ public class MoneyManagementFragment extends Fragment {
     final CaldroidSampleCustomFragment caldroidFragment = new CaldroidSampleCustomFragment();
     ListView lstDetail;
     ArrayList<SpentMoney> arrayDetail=new ArrayList<>();
-    ListThuChiAdapter adapter;
+    DetailUseMoneyAdapter adapter;
     Calendar cal = Calendar.getInstance();
     final SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd");
     HashMap<Date,ArrayList<SpentMoney>> data=new HashMap<>();
@@ -71,7 +68,7 @@ public class MoneyManagementFragment extends Fragment {
             addFakeData();
             //caldroidFragment = new CaldroidFragment();
             lstDetail=(ListView)view.findViewById(R.id.lstDetail);
-            adapter=new ListThuChiAdapter(getContext(),arrayDetail);
+            adapter=new DetailUseMoneyAdapter(getContext(),arrayDetail);
             lstDetail.setAdapter(adapter);
 
             Bundle args = new Bundle();

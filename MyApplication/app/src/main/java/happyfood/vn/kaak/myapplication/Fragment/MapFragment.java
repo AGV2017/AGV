@@ -2,8 +2,10 @@ package happyfood.vn.kaak.myapplication.Fragment;
 
 import android.Manifest;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.inputmethodservice.Keyboard;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -17,17 +19,21 @@ import android.support.v7.app.AlertDialog;
 
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 
 
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TabHost;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.SearchView;
 
@@ -70,6 +76,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
     private FusedLocationProviderClient mFusedLocationClient;
     private MarkerOptions markerOptionsMyLocation;
     private Marker markerMyLocation;
+    private ImageButton ibtnSearch;
+    private EditText etSearchContent;
 
     private LatLng myLocation=new LatLng(10.7721,106.696);
     private Circle mCircle;
@@ -116,6 +124,24 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
 
     private void getFormWidgets() {
         rootView=view.findViewById(R.id.layout_root);
+        searchView=(SearchView)view.findViewById(R.id.svSearch);
+        layoutList=(LinearLayout)view.findViewById(R.id.layout_list);
+        layoutMap=(FrameLayout)view.findViewById(R.id.layout_map);
+        layoutActionbar=(LinearLayout)view.findViewById(R.id.layout_actionbar);
+        btnType=(Button)view.findViewById(R.id.btnType);
+        ibtnMenu=(ImageButton)view.findViewById(R.id.ibtnMenu);
+        ibtnScanQR=(ImageButton)view.findViewById(R.id.ibtnScanQRCode);
+        ibtnShowList=(ImageButton)view.findViewById(R.id.ibtnShowList);
+        ibtnSearch=(ImageButton)view.findViewById(R.id.ibtnSearch);
+        etSearchContent=(EditText)view.findViewById(R.id.etSearchContent);
+        mTabhost=(TabHost)view.findViewById(R.id.mTabHost);
+
+        lstRestaurantOnTab1=(ListView)view.findViewById(R.id.lst_restaurant_tab_1);
+        lstRestaurantOnTab2=(ListView)view.findViewById(R.id.lst_restaurant_tab_2);
+        lstRestaurantOnTab3=(ListView)view.findViewById(R.id.lst_restaurant_tab_3);
+        lstRestaurantOnTab4=(ListView)view.findViewById(R.id.lst_restaurant_tab_4);
+        lstRestaurantOnTab5=(ListView)view.findViewById(R.id.lst_restaurant_tab_5);
+
         //Kiểm tra xem thiết bị đã cấp quyền truy cập vị trí hay chưa
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             GoogleHelper.checkLocationPermission(getActivity());
@@ -125,10 +151,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
         if (mapFrag != null) {
             mapFrag.getMapAsync(this);
         }
-        /*mapFrag = getFragmentManager().findFragmentById(R.id.map);
-        mapFrag.getMapAsync(this);*/
 
-        searchView=(SearchView)view.findViewById(R.id.svSearch);
         //Set searchview auto expend
         searchView.setIconifiedByDefault(false);
         //Clear focus on searchview
@@ -136,25 +159,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
         searchView.setIconified(false);
         searchView.clearFocus();
 
-        //ánh xạ các control
-        layoutList=(LinearLayout)view.findViewById(R.id.layout_list);
-        layoutMap=(FrameLayout)view.findViewById(R.id.layout_map);
-        layoutActionbar=(LinearLayout)view.findViewById(R.id.layout_actionbar);
-        btnType=(Button)view.findViewById(R.id.btnType);
-        ibtnMenu=(ImageButton)view.findViewById(R.id.ibtnMenu);
-        ibtnScanQR=(ImageButton)view.findViewById(R.id.ibtnScanQRCode);
-        ibtnShowList=(ImageButton)view.findViewById(R.id.ibtnShowList);
-
-        mTabhost=(TabHost)view.findViewById(R.id.mTabHost);
         addTabspec();
 
-        lstRestaurantOnTab1=(ListView)view.findViewById(R.id.lst_restaurant_tab_1);
-        lstRestaurantOnTab2=(ListView)view.findViewById(R.id.lst_restaurant_tab_2);
-        lstRestaurantOnTab3=(ListView)view.findViewById(R.id.lst_restaurant_tab_3);
-        lstRestaurantOnTab4=(ListView)view.findViewById(R.id.lst_restaurant_tab_4);
-        lstRestaurantOnTab5=(ListView)view.findViewById(R.id.lst_restaurant_tab_5);
-
-        //Lấy chiều cao của actionbar gán cho 2 layout actionbar
+        //Lấy chiều cao của actionbar gán cho layout actionbar
         // Calculate ActionBar height
         int actionBarHeight=0;
         TypedValue tv = new TypedValue();
@@ -243,6 +250,29 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
                 return false;
             }
         });
+
+        ibtnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(etSearchContent.getVisibility()== View.GONE)
+                    etSearchContent.setVisibility(View.VISIBLE);
+                else
+                    etSearchContent.setVisibility(View.GONE);
+            }
+        });
+        etSearchContent.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                    Toast.makeText(getContext(), "Từ khóa: "+etSearchContent.getText().toString(), Toast.LENGTH_SHORT).show();
+                    InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                }
+
+                return false;
+            }
+        });
+
     }
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -298,6 +328,16 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
                 }
                 //Hiển thị nút show danh sách listview
                 ibtnShowList.setVisibility(View.VISIBLE);
+                //Ẩn thanh tìm kiếm đi và ẩn luôn bàn phím
+                if(etSearchContent.getVisibility()==View.VISIBLE){
+                    etSearchContent.setVisibility(View.GONE);
+                    View viewRoot = getActivity().getCurrentFocus();
+                    if (viewRoot != null) {
+                        InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                        imm.hideSoftInputFromWindow(viewRoot.getWindowToken(), 0);
+                    }
+                }
+
             }
         });
     }

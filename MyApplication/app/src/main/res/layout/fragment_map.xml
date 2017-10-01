@@ -74,6 +74,20 @@
             android:background="@drawable/custom_background"
             app:srcCompat="@mipmap/ic_launcher" />
 
+        <EditText
+            android:id="@+id/etSearchContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textFilter"
+            android:background="@drawable/custom_background_button_2_gradius"
+            android:layout_gravity="bottom|left"
+            android:visibility="gone"
+            android:imeOptions="actionSearch"
+            android:maxLines="1"
+            android:padding="@dimen/all_padding_short"
+            android:layout_margin="@dimen/icon_margin_map_10dp" />
+
     </FrameLayout>
 
     <LinearLayout
@@ -93,15 +107,28 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <HorizontalScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-                    <TabWidget
-                        android:id="@android:id/tabs"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent" />
-                </HorizontalScrollView>
+                    <ImageButton
+                        android:id="@+id/ibtnSearch"
+                        android:layout_width="@dimen/map_search_button_width"
+                        android:layout_height="@dimen/map_search_button_height"
+                        android:background="@drawable/custom_background_button_2_gradius_border_white"
+                        android:src="@mipmap/ic_search" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TabWidget
+                            android:id="@android:id/tabs"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent" />
+                    </HorizontalScrollView>
+                </LinearLayout>
 
                 <FrameLayout
                     android:id="@android:id/tabcontent"
@@ -112,7 +139,6 @@
                         android:id="@+id/tab1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-
                         android:orientation="vertical">
 
                         <ListView
@@ -125,7 +151,6 @@
                         android:id="@+id/tab2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-
                         android:orientation="vertical">
 
                         <ListView

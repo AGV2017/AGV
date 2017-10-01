@@ -17,11 +17,11 @@ import happyfood.vn.kaak.myapplication.R;
  * Created by MyPC on 27/09/2017.
  */
 
-public class ListThuChiAdapter extends BaseAdapter {
+public class DetailUseMoneyAdapter extends BaseAdapter {
     Context context;
     ArrayList<SpentMoney> arrSpentMoney =new ArrayList<>();
 
-    public ListThuChiAdapter(Context context, ArrayList<SpentMoney> arrSpentMoney) {
+    public DetailUseMoneyAdapter(Context context, ArrayList<SpentMoney> arrSpentMoney) {
         this.context = context;
         this.arrSpentMoney = arrSpentMoney;
     }

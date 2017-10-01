@@ -15,8 +15,6 @@ import android.widget.TextView;
 
 import com.google.android.gms.maps.model.LatLng;
 
-import org.w3c.dom.Text;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -58,7 +56,7 @@ public class RestaurantOnMapAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         Restaurant restaurant=arrayRestaurant.get(position);
         if(convertView==null){
-            convertView= LayoutInflater.from(context).inflate(R.layout.custom_layout_restaurant,parent,false);
+            convertView= LayoutInflater.from(context).inflate(R.layout.custom_layout_list_restaurant,parent,false);
         }
 
         TextView tvName=(TextView)convertView.findViewById(R.id.tvName);

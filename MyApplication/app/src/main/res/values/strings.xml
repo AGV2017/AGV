@@ -38,4 +38,8 @@
     <string name="all_accept">Chấp nhận</string>
     <string name="get_money">Thu tiền</string>
     <string name="spent_money">Chi tiền</string>
+
+    <!--string for friends fragment-->
+    <string name="all_list_friends">Danh sách bạn</string>
+    <string name="all_group">Nhóm</string>
 </resources>
